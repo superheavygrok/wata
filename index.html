@@ -39,4 +39,99 @@
                 <span class="text-3xl font-bold tracking-widest text-[#22d3ee]">$WATA</span>
             </div>
             <div class="flex gap-8 text-sm font-bold">
-                <a href
+                <a href="#lore" class="hover:text-[#22d3ee]">LORE</a>
+                <a href="#rewards" class="hover:text-[#22d3ee]">DIVIDENDS</a>
+                <a href="#buy" class="hover:text-[#22d3ee]">BUY $WATA</a>
+                <a href="#community" class="hover:text-[#22d3ee]">COMMUNITY</a>
+            </div>
+            <button onclick="mockConnect()" class="bg-[#22d3ee] hover:bg-cyan-300 text-[#0a2540] px-6 py-2 rounded-full font-bold flex items-center gap-2">
+                <i class="fas fa-wallet"></i> CONNECT
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero-bg relative min-h-screen flex items-center overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-3 rounded-3xl border border-white/30">
+                    <span class="text-2xl">🥥</span>
+                    <span class="font-bold text-xl">DRINK WATA • STAY HYDRATED</span>
+                </div>
+                
+                <h1 class="text-7xl md:text-8xl font-black leading-none tracking-tighter text-white drop-shadow-2xl">
+                    $WATA
+                </h1>
+                <p class="text-4xl text-cyan-300 font-bold">Hold. Earn <span class="text-amber-300">$COCO</span></p>
+                <p class="text-2xl max-w-md">The ultimate hydration token on Solana. Holders automatically earn $COCO dividends as the world prepares for financial reset.</p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a onclick="buyWata()" class="bg-gradient-to-r from-cyan-400 to-blue-600 hover:from-cyan-300 hover:to-blue-500 text-white text-xl px-10 py-6 rounded-3xl font-bold flex items-center gap-3 shadow-xl shadow-cyan-500/50">
+                        BUY ON RAYDIUM
+                    </a>
+                    <a href="#rewards" class="border border-white/60 hover:bg-white/10 text-xl px-10 py-6 rounded-3xl font-bold flex items-center gap-3">
+                        HOW DIVIDENDS WORK
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mascot -->
+            <div class="flex justify-center relative">
+                <div class="mascot relative">
+                    <img src="assets/logo.png" alt="WATA Mascot" class="w-96 drop-shadow-2xl" style="filter: drop-shadow(0 0 60px #22d3ee);">
+                    <div class="absolute -bottom-8 right-12 bg-white text-[#0a2540] text-6xl rounded-3xl px-6 py-2 rotate-12 shadow-2xl flex items-center gap-2">
+                        👍
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subtle beach bottom -->
+        <div class="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#0c4a6e] to-transparent z-20 flex items-end justify-around px-12">
+            <div class="palm text-8xl flex flex-col items-center">🌴</div>
+            <div class="palm text-8xl flex flex-col items-center" style="animation-delay: 1s;">🌴</div>
+        </div>
+    </header>
+
+    <!-- LORE -->
+    <section id="lore" class="py-24 bg-[#1e3a8a]">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold mb-8 text-cyan-300">THE APOCALYPSE IS THIRSTY</h2>
+            <p class="text-xl max-w-2xl mx-auto">As the financial system crumbles, $WATA holders stay hydrated with automatic $COCO dividends.</p>
+        </div>
+    </section>
+
+    <!-- DIVIDENDS (replaced the old game) -->
+    <section id="rewards" class="py-24 bg-gradient-to-b from-[#1e3a8a] to-[#0a2540]">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-6xl font-bold text-center mb-12 text-[#22d3ee]">EARN $COCO DIVIDENDS</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-[#0a2540] p-8 rounded-3xl border border-cyan-400/30 text-center">
+                    <div class="text-6xl mb-6">🥥</div>
+                    <h3 class="text-2xl mb-4">PASSIVE REWARDS</h3>
+                    <p class="text-lg">Hold $WATA and automatically receive $COCO from transaction fees.</p>
+                </div>
+                <div class="bg-[#0a2540] p-8 rounded-3xl border border-cyan-400/30 text-center">
+                    <div class="text-6xl mb-6">📈</div>
+                    <h3 class="text-2xl mb-4">HYDRATION MULTIPLIER</h3>
+                    <p class="text-lg">Longer holds = bigger $COCO payouts. Stay refreshed through the collapse.</p>
+                </div>
+                <div class="bg-[#0a2540] p-8 rounded-3xl border border-cyan-400/30 text-center">
+                    <div class="text-6xl mb-6">🌊</div>
+                    <h3 class="text-2xl mb-4">CRISIS PROOF</h3>
+                    <p class="text-lg">$COCO keeps you hydrated while fiat burns.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black/40 py-12 text-center text-xs">
+        © $WATA • STAY HYDRATED THROUGH THE COLLAPSE
+    </footer>
+
+    <script>
+        function mockConnect() { alert("🪐 Wallet Connected! You're hydrated."); }
+        function buyWata() { window.open("https://raydium.io", "_blank"); }
+    </script>
+</body>
+</html>
