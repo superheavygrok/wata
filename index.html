@@ -21,13 +21,6 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
         }
-        .palm {
-            animation: sway 4s ease-in-out infinite;
-        }
-        @keyframes sway {
-            0%, 100% { transform: rotate(-5deg); }
-            50% { transform: rotate(5deg); }
-        }
     </style>
 </head>
 <body class="bg-[#0a2540] text-white overflow-x-hidden">
@@ -78,18 +71,12 @@
             <!-- Mascot -->
             <div class="flex justify-center relative">
                 <div class="mascot relative">
-                    <img src="assets/logo.png" alt="WATA Mascot" class="w-96 drop-shadow-2xl" style="filter: drop-shadow(0 0 60px #22d3ee);">
+                    <img src="assets/logo.png" alt="WATA Mascot" class="w-96 drop-shadow-2xl" onerror="this.src='https://via.placeholder.com/400x400/22d3ee/0a2540?text=WATA+MASCOT';" style="filter: drop-shadow(0 0 60px #22d3ee);">
                     <div class="absolute -bottom-8 right-12 bg-white text-[#0a2540] text-6xl rounded-3xl px-6 py-2 rotate-12 shadow-2xl flex items-center gap-2">
                         👍
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Subtle beach bottom -->
-        <div class="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#0c4a6e] to-transparent z-20 flex items-end justify-around px-12">
-            <div class="palm text-8xl flex flex-col items-center">🌴</div>
-            <div class="palm text-8xl flex flex-col items-center" style="animation-delay: 1s;">🌴</div>
         </div>
     </header>
 
@@ -101,7 +88,7 @@
         </div>
     </section>
 
-    <!-- DIVIDENDS (replaced the old game) -->
+    <!-- DIVIDENDS -->
     <section id="rewards" class="py-24 bg-gradient-to-b from-[#1e3a8a] to-[#0a2540]">
         <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-6xl font-bold text-center mb-12 text-[#22d3ee]">EARN $COCO DIVIDENDS</h2>
