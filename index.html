@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$WATA | Drink WATA • Stay Hydrated • Earn COCO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        :root {
+            --primary: #00bfff;
+        }
+        body {
+            font-family: 'Press Start 2P', system-ui;
+        }
+        .hero-bg {
+            background: linear-gradient(180deg, #0a2540 0%, #1e90ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .wave {
+            animation: wave 4s linear infinite;
+        }
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .coconut {
+            animation: bob 2s ease-in-out infinite;
+            cursor: pointer;
+        }
+        .palm {
+            animation: sway 3s ease-in-out infinite alternate;
+        }
+    </style>
+</head>
+<body class="bg-[#0a2540] text-white">
+    <!-- Navbar -->
+    <nav class="bg-black/50 backdrop-blur-md border-b border-blue-500 fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center text-2xl">🥥</div>
+                <span class="text-3xl font-bold tracking-widest text-blue-400">$WATA</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm uppercase">
+                <a href="#lore" class="hover:text-blue-400 transition-colors">LORE</a>
+                <a href="#how" class="hover:text-blue-400 transition-colors">HOW IT WORKS</a>
+                <a href="#token" class="hover:text-blue-400 transition-colors">TOKEN</a>
+                <a href="#beach" class="hover:text-blue-400 transition-colors">THE BEACH</a>
+            </div>
+            <button onclick="connectWallet()" class="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-full font-bold text-sm flex items-center gap-2 transition-all">
+                <i class="fas fa-wallet"></i>
+                CONNECT WALLET
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero-bg pt-20 min-h-screen flex items-center relative">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-6 py-2 rounded-3xl text-sm">
+                    <span class="text-yellow-300">🌴</span>
+                    <span>SOLANA • MEME • HYDRATION PROTOCOL</span>
+                </div>
+                <h1 class="text-7xl md:text-8xl font-bold leading-none tracking-tighter">
+                    DRINK<br><span class="text-blue-400">WATA</span><br>STAY<br>HYDRATED<br><span class="text-amber-300">EARN COCO</span>
+                </h1>
+                <p class="text-xl max-w-md text-blue-100">Holders survive the financial crisis and world collapse. Coconut rewards for the hydrated elite.</p>
+                
+                <div class="flex gap-4">
+                    <button onclick="drinkWata()" class="bg-white text-[#0a2540] px-8 py-4 rounded-2xl font-bold text-xl flex items-center gap-3 hover:scale-105 transition-transform">
+                        🥤 DRINK $WATA
+                    </button>
+                    <button onclick="collectCoco()" class="border-2 border-white px-8 py-4 rounded-2xl font-bold text-xl flex items-center gap-3 hover:bg-white/10 transition-all">
+                        🥥 COLLECT COCO
+                    </button>
+                </div>
+                
+                <div class="flex items-center gap-8 text-sm">
+                    <div>
+                        <div class="text-blue-300">MARKET CAP</div>
+                        <div class="text-3xl font-bold" id="market-cap">$420,690</div>
+                    </div>
+                    <div>
+                        <div class="text-blue-300">HOLDERS</div>
+                        <div class="text-3xl font-bold" id="holders">4,269</div>
+                    </div>
+                    <div>
+                        <div class="text-blue-300">COCO EARNED</div>
+                        <div class="text-3xl font-bold text-amber-300" id="coco-total">69,420</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Coconut Character -->
+            <div class="relative flex justify-center">
+                <div class="text-[280px] relative" id="hero-coconut">
+                    🥥
+                    <div class="absolute -top-12 -right-12 text-6xl animate-bounce">😎</div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl rotate-12">💧</div>
+                </div>
+                <div onclick="clickCoconut(this)" class="absolute bottom-12 right-12 text-8xl cursor-pointer coconut" style="animation-delay: 0.5s;">
+                    🥥
+                </div>
+            </div>
+        </div>
+        
+        <!-- Water splashes -->
+        <div class="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-blue-600/30 to-transparent flex items-end justify-around overflow-hidden">
+            <div class="text-6xl wave" style="animation-delay: 0s;">💦</div>
+            <div class="text-6xl wave" style="animation-delay: 1s;">💧</div>
+            <div class="text-6xl wave" style="animation-delay: 0.5s;">🌊</div>
+        </div>
+        
+        <!-- Palm trees decoration -->
+        <div class="absolute top-32 left-10 text-8xl palm">🌴</div>
+        <div class="absolute top-40 right-10 text-8xl palm" style="animation-delay: 1s;">🌴</div>
+    </header>
+
+    <!-- Interactive Beach Section -->
+    <section id="beach" class="py-24 bg-[#0f3a5a] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-5xl font-bold mb-2">THE BEACH 🏖️</h2>
+                <p class="text-blue-200">Click coconuts to earn COCO. Stay hydrated during the collapse!</p>
+            </div>
+            
+            <div id="beach-scene" class="relative h-96 bg-gradient-to-b from-sky-300 to-blue-900 rounded-3xl border-4 border-amber-300/30 shadow-2xl overflow-hidden flex items-end justify-center">
+                <!-- Dynamic beach content added via JS -->
+                <div class="absolute inset-0 flex items-center justify-center text-9xl opacity-20">🌊</div>
+                <div class="absolute bottom-0 w-full h-1/3 bg-[#f4a261] flex items-end justify-around px-12">
+                    <!-- Sand -->
+                </div>
+                <div class="absolute top-12 left-1/4 text-[120px] palm cursor-pointer" onclick="shakePalm(this)">🌴</div>
+                <div class="absolute top-20 right-1/4 text-[120px] palm cursor-pointer" onclick="shakePalm(this)" style="animation-delay: 1200ms;">🌴</div>
+                
+                <div id="coconuts-container" class="absolute inset-0 flex justify-around items-start pt-20">
+                    <!-- Coconuts added by JS -->
+                </div>
+            </div>
+            
+            <div class="mt-8 flex justify-center">
+                <div class="bg-black/60 backdrop-blur p-6 rounded-3xl flex items-center gap-6 text-lg">
+                    <div>Your COCO: <span id="player-coco" class="font-bold text-amber-300">0</span></div>
+                    <button onclick="resetBeach()" class="px-6 py-2 bg-amber-400 text-black font-bold rounded-2xl">RESET BEACH</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lore -->
+    <section id="lore" class="py-24 bg-black/30">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-5xl font-bold mb-8">THE LORE</h2>
+                    <div class="space-y-6 text-lg leading-relaxed">
+                        <p>As the fiat system crumbles and the world heads towards collapse, a new currency emerges from the tropics...</p>
+                        <p><strong>$WATA</strong> - the ultimate hydration token on Solana.</p>
+                        <p>Holders of $WATA automatically earn <strong>$COCO</strong> rewards. Coconuts are the perfect survival food: delicious, nutritious, and portable.</p>
+                        <p>Stay hydrated. Stack COCO. Survive the apocalypse in style with your coconut crew.</p>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div class="text-[200px] mx-auto">🥥😎</div>
+                    <p class="text-2xl text-blue-300">The Official Mascot</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16">HOW TO STAY HYDRATED</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white/5 p-8 rounded-3xl text-center hover:scale-105 transition-transform">
+                    <div class="text-7xl mb-4">1️⃣</div>
+                    <h3 class="text-2xl font-bold mb-3">HOLD $WATA</h3>
+                    <p class="text-blue-100">Buy and hold the token on Solana. The more you hold, the more hydrated you become.</p>
+                </div>
+                <div class="bg-white/5 p-8 rounded-3xl text-center hover:scale-105 transition-transform">
+                    <div class="text-7xl mb-4">2️⃣</div>
+                    <h3 class="text-2xl font-bold mb-3">EARN $COCO</h3>
+                    <p class="text-blue-100">Passive rewards in $COCO tokens drop into your wallet. Like coconuts falling from palms.</p>
+                </div>
+                <div class="bg-white/5 p-8 rounded-3xl text-center hover:scale-105 transition-transform">
+                    <div class="text-7xl mb-4">3️⃣</div>
+                    <h3 class="text-2xl font-bold mb-3">SURVIVE</h3>
+                    <p class="text-blue-100">Use your COCO to stay refreshed as the financial world burns around you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Token Info -->
+    <section id="token" class="py-24 bg-[#0f3a5a]">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold mb-8">$WATA TOKEN</h2>
+            <div class="max-w-md mx-auto bg-black/40 p-8 rounded-3xl">
+                <div class="mb-6">
+                    <div class="uppercase text-xs tracking-widest mb-1">Contract Address</div>
+                    <div class="font-mono text-sm bg-black/50 p-4 rounded-2xl break-all" onclick="copyToClipboard(this)">
+                        Coming soon on Pump.fun or Raydium (placeholder)
+                    </div>
+                </div>
+                <a href="https://solana.com" target="_blank" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300">
+                    View on Solscan <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black py-12 border-t border-blue-900">
+        <div class="max-w-7xl mx-auto px-6 text-center text-blue-300">
+            <p class="flex items-center justify-center gap-2">
+                Made with 💧🥥 for the $WATA community | Stay Hydrated During the Collapse
+            </p>
+            <p class="mt-8 text-xs opacity-50">© 2026 WATA DAO. Not financial advice. Drink responsibly.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script init
+        function initTailwind() {
+            // Already loaded via CDN
+        }
+        
+        let playerCoco = 0;
+        
+        function drinkWata() {
+            const hero = document.getElementById('hero-coconut');
+            hero.classList.add('animate-bounce');
+            setTimeout(() => hero.classList.remove('animate-bounce'), 800);
+            
+            // Simple toast
+            showToast('💧 You drank $WATA! +10 hydration');
+        }
+        
+        function collectCoco() {
+            playerCoco += Math.floor(Math.random() * 42) + 10;
+            document.getElementById('player-coco').textContent = playerCoco;
+            showToast('🥥 +COCO earned!');
+            updateTotalCoco();
+        }
+        
+        function clickCoconut(el) {
+            el.style.transition = 'transform 0.3s';
+            el.style.transform = 'scale(0.3) translateY(100px)';
+            setTimeout(() => {
+                el.style.transition = 'none';
+                el.style.transform = '';
+                collectCoco();
+            }, 400);
+        }
+        
+        function shakePalm(el) {
+            el.style.transition = 'transform 0.4s';
+            el.style.transform = 'rotate(25deg)';
+            setTimeout(() => {
+                el.style.transition = 'transform 0.6s';
+                el.style.transform = 'rotate(-15deg)';
+            }, 200);
+            setTimeout(() => {
+                el.style.transition = 'transform 1s';
+                el.style.transform = '';
+                // Drop a coconut
+                if (Math.random() > 0.5) collectCoco();
+            }, 800);
+        }
+        
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.style.position = 'fixed';
+            toast.style.bottom = '30px';
+            toast.style.left = '50%';
+            toast.style.transform = 'translateX(-50%)';
+            toast.style.background = '#0ea5e9';
+            toast.style.color = 'white';
+            toast.style.padding = '16px 24px';
+            toast.style.borderRadius = '9999px';
+            toast.style.boxShadow = '0 10px 15px -3px rgb(0 0 0 / 0.3)';
+            toast.style.zIndex = '9999';
+            toast.style.whiteSpace = 'nowrap';
+            toast.textContent = msg;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.transition = 'all 0.4s';
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateX(-50%) translateY(20px)';
+                setTimeout(() => toast.remove(), 400);
+            }, 2500);
+        }
+        
+        function updateTotalCoco() {
+            const totalEl = document.getElementById('coco-total');
+            let total = parseInt(totalEl.textContent.replace(',', ''));
+            total += Math.floor(Math.random() * 100) + 50;
+            totalEl.textContent = total.toLocaleString();
+        }
+        
+        function connectWallet() {
+            showToast('🪪 Wallet connected! (Demo)');
+            // In real app would integrate @solana/web3.js or phantom
+        }
+        
+        function copyToClipboard(el) {
+            navigator.clipboard.writeText(el.textContent).then(() => {
+                const original = el.textContent;
+                el.textContent = '✅ Copied!';
+                setTimeout(() => el.textContent = original, 2000);
+            });
+        }
+        
+        function resetBeach() {
+            playerCoco = 0;
+            document.getElementById('player-coco').textContent = '0';
+            showToast('Beach reset! 🌴');
+        }
+        
+        // Populate beach with coconuts
+        function populateBeach() {
+            const container = document.getElementById('coconuts-container');
+            for (let i = 0; i < 8; i++) {
+                const coconut = document.createElement('div');
+                coconut.className = 'text-7xl cursor-pointer coconut absolute';
+                coconut.style.left = (15 + Math.random() * 70) + '%';
+                coconut.style.top = (20 + Math.random() * 40) + '%';
+                coconut.textContent = '🥥';
+                coconut.onclick = function() { clickCoconut(this); };
+                container.appendChild(coconut);
+            }
+        }
+        
+        // Fake market data ticking
+        function startMarketTicker() {
+            let cap = 420690;
+            const capEl = document.getElementById('market-cap');
+            setInterval(() => {
+                cap += Math.floor(Math.random() * 5000) - 2000;
+                if (cap < 100000) cap = 420690;
+                capEl.textContent = '$' + Math.floor(cap).toLocaleString();
+            }, 4000);
+        }
+        
+        // Initialize everything
+        window.onload = function() {
+            populateBeach();
+            startMarketTicker();
+            console.log('%c$WATA website loaded! Stay hydrated 💧🥥', 'color: #22d3ee; font-family: monospace');
+            
+            // Click anywhere on hero coconut sometimes
+            const heroCoco = document.getElementById('hero-coconut');
+            heroCoco.style.cursor = 'pointer';
+            heroCoco.onclick = () => collectCoco();
+        };
+    </script>
+</body>
+</html>
